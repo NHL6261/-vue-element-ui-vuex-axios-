@@ -141,7 +141,7 @@ export default {
       if (regPwd.test(value)) {
         return callback();
       } else {
-        callback(new Error("密码是由英文,数字,下划线组成"));
+        callback(new Error("密码是6-10位数字!"));
       }
     };
     //  自定义验证规则 验证email
@@ -181,7 +181,7 @@ export default {
       userlist: [], //所有的用户列表
       total: 0, // 总的数据条数
       addDialogVisible: false, //控制弹出框的显示与隐藏
-      editDialogVisible:false, // 修改信息
+      editDialogVisible: false, // 修改信息
       // 添加表单验证的规则区域
       addUserFormrules: {
         username: [
