@@ -50,7 +50,13 @@
               @click="showEditDialog(scope.row.id)"
             ></el-button>
             <!-- 删除 -->
-            <el-button type="danger" icon="el-icon-delete" circle size="mini"></el-button>
+            <el-button
+              type="danger"
+              icon="el-icon-delete"
+              circle
+              size="mini"
+              @click="removeUserById(scope.row.id)"
+            ></el-button>
             <!-- 分配角色 -->
             <el-tooltip effect="dark" content="分配角色" circle placement="top" :enterable="false">
               <el-button type="warning" circle icon="el-icon-setting" size="mini"></el-button>
@@ -121,7 +127,7 @@
 </template>
 
 <script>
-import { Message } from "element-ui";
+import { Message, MessageBox } from "element-ui";
 
 export default {
   data() {
@@ -140,7 +146,7 @@ export default {
       if (regPwd.test(value)) {
         return callback();
       } else {
-        callback(new Error("密码是由英文,数字,下划线组成"));
+        callback(new Error("密码是6-10位数字!"));
       }
     };
     //  自定义验证规则 验证email
@@ -180,7 +186,7 @@ export default {
       userlist: [], //所有的用户列表
       total: 0, // 总的数据条数
       addDialogVisible: false, //控制弹出框的显示与隐藏
-      editDialogVisible:false, // 修改信息
+      editDialogVisible: false, // 修改信息
       // 添加表单验证的规则区域
       addUserFormrules: {
         username: [
@@ -317,6 +323,32 @@ export default {
         // 提示修改成功
         Message.success("更新用户信息成功！");
       });
+    },
+    // 根据用户id删除相应的 用户
+    async removeUserById(id) {
+      // 弹框 问用户是否删除
+      const confirmResult = await this.$confirm(
+        "此操作将永久删除该用户, 是否继续?",
+        "提示",
+        {
+          confirmButtonText: "确定",
+          cancelButtonText: "取消",
+          type: "warning"
+        }
+      ).catch(err => err)
+      // 如果用户点击了确认删除则是显示字符串 confirm
+      // 如果用户点击了取消删除则是返回字符串 cancel
+      if(confirmResult !== 'confirm'){
+        return Message.info('取消了删除')
+      }else{
+        let {data: res } = await this.$ajax.delete(`users/ ${id}`)
+        if(res.meta.status !== 200){
+          return Message.error('用户删除失败!')
+        }else{
+          Message.success('用户删除成功!')
+          this.getUserList()
+        }
+      }
     }
   }
 };
