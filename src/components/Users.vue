@@ -173,7 +173,7 @@ export default {
       queryInfo: {
         query: "", // 查询参数,
         pagenum: 1, //当前页数 和 分页 current-page 相结合
-        pagesize: 2 //每页的显示条数 和 page-size 相结合
+        pagesize: 10//每页的显示条数 和 page-size 相结合
       },
       // 添加用户的表单数据
       addUserForm: {
