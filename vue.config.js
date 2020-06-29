@@ -7,7 +7,7 @@ module.exports = {
     lintOnSave: false,
     devServer: {
         open: true,
-        port: 8080,
+        port: 7878,
         proxy: {
             '/api': {
                 target: 'http://localhost:4001',
@@ -18,8 +18,10 @@ module.exports = {
             }
         }
     },
+
     // 绝对路径
     chainWebpack: config => {
         config.resolve.alias.set("@", resolve("src"))
+            // 发布模式
     },
 }

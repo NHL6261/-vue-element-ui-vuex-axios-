@@ -6,7 +6,6 @@
       <el-breadcrumb-item>用户管理</el-breadcrumb-item>
       <el-breadcrumb-item>用户列表</el-breadcrumb-item>
     </el-breadcrumb>
-
     <!-- 卡片式图 -->
     <el-card>
       <!-- 搜索区域 -->
@@ -420,10 +419,7 @@ export default {
 };
 </script>
 
-<style lang="less">
-// .box-card {
-//   width: 480px;
-// }
+<style lang="less" scoped>
 .el-breadcrumb {
   margin-bottom: 20px;
 }

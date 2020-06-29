@@ -58,7 +58,6 @@
         <router-view></router-view>
       </el-main>
     </el-container>
-
     <!-- 退出提醒 -->
     <el-dialog title="警告!" id="exit_setting" :visible.sync="Exitdialog" width="20%">
       <span>您确定要退出吗?</span>
