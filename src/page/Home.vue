@@ -176,8 +176,7 @@ export default {
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid #6666FF;
-}
+  }
 .left_contianer {
   width: 20%;
   display: flex;
