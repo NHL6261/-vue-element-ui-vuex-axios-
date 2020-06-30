@@ -172,7 +172,7 @@ export default {
   width: 100%;
   height: 70px;
   background-color: #333;
-  padding: 0 120px;
+  padding: 0 50px;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
@@ -196,6 +196,7 @@ export default {
   color: burlywood;
   font-family: "微软雅黑";
   line-height: 70px;
+  margin-right: 28px;
   animation: scintillation 2s 0s infinite linear;
 }
 .right_exit {

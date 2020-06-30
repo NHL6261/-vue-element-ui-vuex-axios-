@@ -274,7 +274,7 @@ export default {
     // 显示编辑对话框
     async showEditCateDialog(id) {
       const { data: res } = await this.$ajax.get("categories/" + id);
-      if (res.meta.status !== 200) return this.Message.error("获取分类失败！");
+      if (res.meta.status !== 200) return Message.error("获取分类失败！");
       this.editCateForm = res.data;
       this.editCateDialogVisible = true;
     },
@@ -289,7 +289,7 @@ export default {
           }
         );
         if (res.meta.status !== 200) return Message.error("更新分类名失败！");
-        this.Message.success("更新分类名成功！");
+        Message.success("更新分类名成功！");
         this.getCatList();
         this.editCateDialogVisible = false;
       });

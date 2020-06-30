@@ -6,6 +6,8 @@ import '@/css/global.css'
 import '@/plugins/element.js';
 import * as http from '@/api'
 import axios from 'axios'
+// 适配方案
+// import './util/flexible.js'
 import TreeTable from 'vue-table-with-tree-grid'
 axios.defaults.baseURL = "http://127.0.0.1:8888/api/private/v1/"
 axios.interceptors.request.use(config => {
