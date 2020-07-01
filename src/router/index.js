@@ -113,7 +113,16 @@ const routes = [
                     import ('../components/Shop.vue'),
                 meta: {
                     title: 'shopping goods'
-                }
+                },
+            },
+            {
+                path: '/shop/add',
+                name: 'Add',
+                component: () =>
+                    import ('../components/Add.vue'),
+                meta: {
+                    title: '请添加商品'
+                },
             },
             {
                 path: '/users',

@@ -20,6 +20,23 @@ Vue.prototype.$http = http
 Vue.prototype.$ajax = axios
 Vue.config.productionTip = false;
 Vue.component('tree-table', TreeTable)
+    // 定义全局过滤器
+Vue.filter('dateFormat', function(originVal) {
+    const dt = new Date(originVal)
+        //  年
+    const y = dt.getFullYear()
+        // 填充 月份
+    const m = (dt.getMonth() + 1 + '').padStart(2, '0')
+        // 填充日
+    const d = (dt.getDate() + '').padStart(2, '0')
+        // 填充小时
+    const hh = (dt.getHours() + '').padStart(2, '0')
+        // 填充分钟
+    const mm = (dt.getMinutes() + '').padStart(2, '0')
+        // 填充秒
+    const ss = (dt.getSeconds() + '').padStart(2, '0')
+    return `${y}-${m}-${d} ${hh}:${mm}:${ss}`
+})
 new Vue({
     router,
     store,

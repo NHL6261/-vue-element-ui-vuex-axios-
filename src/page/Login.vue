@@ -101,7 +101,7 @@ export default {
       let login;
       login = this.$route.path;
       this.login = login;
-      if (this.$route.path !== login) {
+      if (this.$route.path !== '/login') {
         return;
       } else if (keycode === 13) {
         this.goLogin(); // 登录方法
