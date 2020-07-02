@@ -9,6 +9,11 @@ import axios from 'axios'
 // 适配方案
 // import './util/flexible.js'
 import TreeTable from 'vue-table-with-tree-grid'
+// 富文本编辑器对应 的样式
+import VueQuillEditor from 'vue-quill-editor'
+import 'quill/dist/quill.core.css'
+import 'quill/dist/quill.snow.css'
+import 'quill/dist/quill.bubble.css'
 axios.defaults.baseURL = "http://127.0.0.1:8888/api/private/v1/"
 axios.interceptors.request.use(config => {
     // 将请求到的json类型转换成stringify类型 url认识的形式
@@ -20,6 +25,8 @@ Vue.prototype.$http = http
 Vue.prototype.$ajax = axios
 Vue.config.productionTip = false;
 Vue.component('tree-table', TreeTable)
+    // 将富文本编辑器 注册为全局可用的组件
+Vue.use(VueQuillEditor)
     // 定义全局过滤器
 Vue.filter('dateFormat', function(originVal) {
     const dt = new Date(originVal)
