@@ -263,7 +263,6 @@ export default {
             this.addForm.attrs.push(newInfo);
           });
           form.attrs = this.addForm.attrs;
-          console.log("此时的数组是:", form);
           // 发起请求 添加商品 商品名称必须是唯一的
           const { data: res } = await this.$ajax.post("goods", form);
           if (res.meta.status !== 201) {
